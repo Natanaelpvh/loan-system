@@ -1,0 +1,63 @@
+.wrapper {
+    display: flex;
+}
+
+aside {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    padding-top: 20px;
+    transition: all 0.3s;
+}
+
+aside a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+aside a:hover {
+    background-color: #575757;
+}
+
+main {
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.text-size-large {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    aside {
+        width: 80px;
+    }
+
+    aside a {
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    aside a i {
+        display: block;
+        font-size: 20px;
+    }
+
+    main {
+        margin-left: 80px;
+    }
+}
+@media print {
+    .nao-imprimir {
+        display: none;
+    }
+}

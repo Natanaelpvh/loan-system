@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# Página de erro 404 personalizada
+ErrorDocument 404 /loan-system/404.php
+
+# Permitir acesso à página 404 personalizada
+RewriteCond %{REQUEST_URI} !^/loan-system/404.php [NC]
+
+# Permitir acesso às páginas de login e index
+RewriteCond %{REQUEST_URI} !^/loan-system/auth/login.php [NC]
+RewriteCond %{REQUEST_URI} !^/loan-system/index.php [NC]
+
+# Bloquear acesso direto a config.php
+RewriteCond %{REQUEST_URI} !^/loan-system/config/config.php [NC]
+
+# Se o arquivo ou diretório não existir, redirecionar para login
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /loan-system/auth/login.php [L]
+
+# Se não for um arquivo ou diretório válido, redireciona para 404
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /loan-system/404.php [L]
